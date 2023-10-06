@@ -1,8 +1,12 @@
 <script setup>
 import { ref, reactive } from 'vue'
-import TextComponent from './components/TextComponent.vue'
-const name = ref('John Doe')
-const email= ref('john@doe.com')
+import PersonComponent from './components/PersonComponent.vue'
+
+
+const person = reactive({
+  name: 'John Doe',
+  email: 'john@doe.com'
+})
 
 </script>
 
@@ -14,21 +18,20 @@ const email= ref('john@doe.com')
     </div>
 
     <div class="mt-10">
-      Original Name: {{ name }}<br/>
-      Original Email: {{ email }}
+      Original Name: {{ person.name }}<br/>
+      Original Email: {{ person.email }}
     </div>
 
     <div class="mt-10">
       <label>Name</label>
       <p>
-        <input type="text" v-model="name" />
+        <input type="text" v-model="person.name" />
       </p>
     </div>
 
     <div class="mt-10">
       <label>Component</label><br />
-      <TextComponent label="Name" v-model="name" />
-      <TextComponent label="Email" v-model="email" />
+      <PersonComponent :person="person" />
     </div>
   </div>
 </template>
