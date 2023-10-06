@@ -1,4 +1,6 @@
 <script setup>
+import TextComponent from './TextComponent.vue';
+
 const props = defineProps([
     'person'
 ])
@@ -6,12 +8,8 @@ const props = defineProps([
 </script>
  
 <template>
-    <p>
-        <label>Name</label> <br />
-        <input type="text" v-model="person.name"><br/>
-        <label>Email</label> <br />
-        <input type="text" v-model="person.email"><br/>
-    </p>
+    <TextComponent label="Name" v-model="person.name" />
+    <TextComponent label="Email" v-model="person.email" />
 </template>
  
 <style scoped></style>
