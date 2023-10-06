@@ -1,7 +1,8 @@
 <script setup>
 import { ref, reactive } from 'vue'
-
+import TextComponent from './components/TextComponent.vue'
 const name = ref('John Doe')
+const email= ref('john@doe.com')
 
 </script>
 
@@ -13,7 +14,8 @@ const name = ref('John Doe')
     </div>
 
     <div class="mt-10">
-      Original Name: {{ name }}
+      Original Name: {{ name }}<br/>
+      Original Email: {{ email }}
     </div>
 
     <div class="mt-10">
@@ -22,6 +24,12 @@ const name = ref('John Doe')
         <input type="text" v-model="name" />
       </p>
     </div>
+
+    <div class="mt-10">
+      <label>Component</label><br />
+      <TextComponent label="Name" v-model="name" />
+      <TextComponent label="Email" v-model="email" />
+    </div>
   </div>
 </template>
 
@@ -29,7 +37,7 @@ const name = ref('John Doe')
 .logo {
   height: 6em;
   padding: 1.5em;
-  padding-left:0;
+  padding-left: 0;
   will-change: filter;
   transition: filter 300ms;
 }
