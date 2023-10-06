@@ -1,23 +1,8 @@
 <script setup>
 import { ref, reactive } from 'vue'
-import TextComponent from './components/TextComponent.vue';
-import Task from './components/Task.vue';
-import TaskModel from './components/TaskModel.vue';
 
 const name = ref('John Doe')
 
-const person = reactive(
-  {
-    name: 'John Doe',
-    age: 30,
-    location: 'Earth'
-  }
-)
-
-const task = ref({
-  name: 'Learn Vue',
-  done: false
-})
 </script>
 
 <template>
@@ -28,32 +13,14 @@ const task = ref({
     </div>
 
     <div class="mt-10">
-      {{ person }}
+      Original Name: {{ name }}
     </div>
 
     <div class="mt-10">
-      <h1>Root</h1>
       <label>Name</label>
       <p>
         <input type="text" v-model="name" />
       </p>
-    </div>
-
-    <div class="mt-10">
-      <h1>Component</h1>
-      <TextComponent label="Name" :person="person" />
-    </div>
-
-    <div class="mt-10">
-      {{ task }}
-      <h1>Task Component</h1>
-      <Task :task="task" />
-    </div>
-
-    <div class="mt-10">
-      {{ task }}
-      <h1>Task Component</h1>
-      <TaskModel v-model="task.done" :name="task.name" />
     </div>
   </div>
 </template>
@@ -62,6 +29,7 @@ const task = ref({
 .logo {
   height: 6em;
   padding: 1.5em;
+  padding-left:0;
   will-change: filter;
   transition: filter 300ms;
 }
