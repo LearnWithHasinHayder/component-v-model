@@ -3,11 +3,13 @@ import { ref, reactive } from 'vue'
 import PersonComponent from './components/PersonComponent.vue'
 import NameComponent from './components/NameComponent.vue';
 import NameComponentX from './components/NameComponentX.vue';
-
+import Checkbox from './components/Checkbox.vue';
 const person = reactive({
   name: 'John Doe',
   email: 'john@doe.com'
 })
+
+const taskDone = ref(false)
 
 const fname = ref('John')
 const lname = ref('Doe')
@@ -23,12 +25,18 @@ const lname = ref('Doe')
 
     <div class="mt-10">
       Original Name: {{ person.name }}<br/>
+      Task Done: {{ taskDone }}<br/>
     </div>
 
     <div class="mt-10">
       <label>Component</label><br />
-      <NameComponentX v-model="person.name" />
+      <Checkbox v-model="taskDone" label="Completed this episode" />
     </div>
+
+    <!-- <div class="mt-10">
+      <label>Component</label><br />
+      <NameComponentX v-model="person.name" />
+    </div> -->
 
     <!-- <div class="mt-10">
       <label>Component</label><br />
