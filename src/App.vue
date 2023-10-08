@@ -1,15 +1,10 @@
 <script setup>
 import { ref, reactive } from 'vue'
-import PersonComponent from './components/PersonComponent.vue'
-import NameComponent from './components/NameComponent.vue';
-import NameComponentX from './components/NameComponentX.vue';
-import Checkbox from './components/Checkbox.vue';
-const person = reactive({
-  name: 'John Doe',
-  email: 'john@doe.com'
-})
 
-const taskDone = ref(false)
+import Radio from './components/Radio.vue';
+
+
+const fruit = ref('apple')
 
 const fname = ref('John')
 const lname = ref('Doe')
@@ -24,36 +19,21 @@ const lname = ref('Doe')
     </div>
 
     <div class="mt-10">
-      Original Name: {{ person.name }}<br/>
-      Task Done: {{ taskDone }}<br/>
+      Fruit: {{ fruit }}<br />
     </div>
 
     <div class="mt-10">
       <label>Component</label><br />
-      <Checkbox v-model="taskDone" label="Completed this episode" />
+      <p class="mt-5">
+        <label> Your favorite fruit</label> <br />
+        <Radio v-model="fruit" label="Apple" value="apple" />
+        <Radio v-model="fruit" label="Banana" value="banana" />
+        <Radio v-model="fruit" label="Orange" value="orange" />
+      </p>
+
     </div>
 
-    <!-- <div class="mt-10">
-      <label>Component</label><br />
-      <NameComponentX v-model="person.name" />
-    </div> -->
-
-    <!-- <div class="mt-10">
-      <label>Component</label><br />
-      <NameComponent v-model:fname="fname" v-model:lname="lname" />
-    </div> -->
-
-    <!-- <div class="mt-10">
-      <label>Name</label>
-      <p>
-        <input type="text" v-model="person.name" />
-      </p>
-    </div> -->
-
-    <!-- <div class="mt-10">
-      <label>Component</label><br />
-      <PersonComponent :person="person" />
-    </div> -->
+    
   </div>
 </template>
 
