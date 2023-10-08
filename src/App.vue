@@ -1,12 +1,15 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import PersonComponent from './components/PersonComponent.vue'
-
+import NameComponent from './components/NameComponent.vue';
 
 const person = reactive({
   name: 'John Doe',
   email: 'john@doe.com'
 })
+
+const fname = ref('John')
+const lname = ref('Doe')
 
 </script>
 
@@ -18,21 +21,26 @@ const person = reactive({
     </div>
 
     <div class="mt-10">
-      Original Name: {{ person.name }}<br/>
-      Original Email: {{ person.email }}
-    </div>
-
-    <div class="mt-10">
-      <label>Name</label>
-      <p>
-        <input type="text" v-model="person.name" />
-      </p>
+      Original First Name: {{ fname }}<br/>
+      Original Last Name: {{ lname }}
     </div>
 
     <div class="mt-10">
       <label>Component</label><br />
-      <PersonComponent :person="person" />
+      <NameComponent v-model:fname="fname" v-model:lname="lname" />
     </div>
+
+    <!-- <div class="mt-10">
+      <label>Name</label>
+      <p>
+        <input type="text" v-model="person.name" />
+      </p>
+    </div> -->
+
+    <!-- <div class="mt-10">
+      <label>Component</label><br />
+      <PersonComponent :person="person" />
+    </div> -->
   </div>
 </template>
 
