@@ -2,6 +2,7 @@
 import { ref, reactive } from 'vue'
 import PersonComponent from './components/PersonComponent.vue'
 import NameComponent from './components/NameComponent.vue';
+import NameComponentX from './components/NameComponentX.vue';
 
 const person = reactive({
   name: 'John Doe',
@@ -21,14 +22,18 @@ const lname = ref('Doe')
     </div>
 
     <div class="mt-10">
-      Original First Name: {{ fname }}<br/>
-      Original Last Name: {{ lname }}
+      Original Name: {{ person.name }}<br/>
     </div>
 
     <div class="mt-10">
       <label>Component</label><br />
-      <NameComponent v-model:fname="fname" v-model:lname="lname" />
+      <NameComponentX v-model="person.name" />
     </div>
+
+    <!-- <div class="mt-10">
+      <label>Component</label><br />
+      <NameComponent v-model:fname="fname" v-model:lname="lname" />
+    </div> -->
 
     <!-- <div class="mt-10">
       <label>Name</label>
